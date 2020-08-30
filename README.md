@@ -315,7 +315,7 @@ When you get multiple results after inference, you can use the script
 to integrate all the results. We use a pixel-wised voting method, and recommend voting on odd numbers of results to avoid fluctuations in making decision.
 
 
-# Acknowledgment
+# Acknowledgement
 - Thanks to the organizers of the 2020 TN-SCUI challenge
 - Thanks to the open access DDTI dataset for providing ultrasound data and annotation of thyroid nodules
 - Thanks to [qubvel](https://github.com/qubvel), the author of `smg` and `ttach`, all network and TTA used in this code come from his implement
