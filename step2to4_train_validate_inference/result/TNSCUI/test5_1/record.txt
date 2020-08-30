@@ -1,0 +1,6 @@
+2020-08-30 07:10
+images count in train:409
+images count in valid:99
+images count in test :129
+-----------------------test-----------------------------
+Training...
