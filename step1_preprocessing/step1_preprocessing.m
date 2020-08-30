@@ -1,42 +1,42 @@
-%% Êı¾İÔ¤´¦Àí´úÂë
-% ÊäÈëÎÄ¼ş¼ĞÊÇÔ­Ê¼Êı¾İimageºÍmaskÎÄ¼ş¼Ğ
-% Êä³öÎÄ¼ş¼ĞÊÇp_image£¬p_mask
+%% æ•°æ®é¢„å¤„ç†ä»£ç 
+% è¾“å…¥æ–‡ä»¶å¤¹æ˜¯åŸå§‹æ•°æ®imageå’Œmaskæ–‡ä»¶å¤¹
+% è¾“å‡ºæ–‡ä»¶å¤¹æ˜¯p_imageï¼Œp_mask
 clc;
 close all;
 clear;
 
-%% ²ÎÊı
-%¼òµ¥ãĞÖµ·¨¿¨µôcropºÚ±ß
-value_thresold = 5;  % ÒòÎªÊÇunit8ĞÍÍ¼Ïñ»Ò¶ÈÖµ0µ½255£¬ËùÒÔÉèÖÃ10
+%% å‚æ•°
+%ç®€å•é˜ˆå€¼æ³•å¡æ‰cropé»‘è¾¹
+value_thresold = 5;  % å› ä¸ºæ˜¯unit8å‹å›¾åƒç°åº¦å€¼0åˆ°255ï¼Œæ‰€ä»¥è®¾ç½®10
 
-% Ä¿±ê³ß´ç
+% ç›®æ ‡å°ºå¯¸
 stage1_aim_size = 256;
 stage2_aim_size = 512;
 
-%% Â·¾¶ÉèÖÃ set path
-img_dir ='C:\Users\wamawama\Desktop\¼××´ÏÙ½á½ÚÍâ²¿Êı¾İ¼¯\@DDTI\1_or_data\image';
-mask_dir = 'C:\Users\wamawama\Desktop\¼××´ÏÙ½á½ÚÍâ²¿Êı¾İ¼¯\@DDTI\1_or_data\mask';
-csv_file = 'C:\Users\wamawama\Desktop\¼××´ÏÙ½á½ÚÍâ²¿Êı¾İ¼¯\@DDTI\1_or_data\category.csv';
-save_dir ='C:\Users\wamawama\Desktop\¼××´ÏÙ½á½ÚÍâ²¿Êı¾İ¼¯\@DDTI\2_preprocessed_data';
+%% è·¯å¾„è®¾ç½® set path
+img_dir  = 'C:\DDTI\1_or_data\image';
+mask_dir = 'C:\DDTI\1_or_data\mask';
+csv_file = 'C:\DDTI\1_or_data\category.csv';
+save_dir = 'C:\DDTI\2_preprocessed_data';
 
-%% ¹¹½¨±£´æÎÄ¼ş¼Ğ
+%% æ„å»ºä¿å­˜æ–‡ä»¶å¤¹
 mkdir([save_dir,filesep,'stage1',filesep,'p_image']);
 mkdir([save_dir,filesep,'stage1',filesep,'p_mask']);
 mkdir([save_dir,filesep,'stage2',filesep,'p_image']);
 mkdir([save_dir,filesep,'stage2',filesep,'p_mask']);
 
-%% ¹¹½¨½á½ÚsizeÍ³¼Æ½á¹ûÎÄ¼ş
+%% æ„å»ºç»“èŠ‚sizeç»Ÿè®¡ç»“æœæ–‡ä»¶
 csv_path = [save_dir,filesep,'train.csv'];
-% csvÎÄ¼şÌí¼Ókey
+% csvæ–‡ä»¶æ·»åŠ key
 fid=fopen(csv_path,'w');
 strrr={'ID','CATE','size'};
 fprintf(fid,'%s,%s,%s\n',string(strrr));
 fclose(fid);
 
-%% ¶ÁÈ¡Êı¾İ»ñµÃfilename_list
+%% è¯»å–æ•°æ®è·å¾—filename_list
 filename_list = get_file_list(img_dir,'PNG');
 
-%% ¶ÁÈ¡Êı¾İ»ñÈ¡IDºÍCATE
+%% è¯»å–æ•°æ®è·å–IDå’ŒCATE
 csv_data = importdata(csv_file);
 csv_id_ = csv_data.textdata(2:end,1);
 csv_cate = csv_data.data;
@@ -47,9 +47,9 @@ for i = 1:length(csv_id_)
 end
 csv_id = csv_id';
 
-%% Ô¤´¦Àí
+%% é¢„å¤„ç†
 
-% Öğ¸ö´¦Àí£¬ºáÏò¡¢×İÏò²Ã¼ôµôºÚ±ß,¿Ù³öROI£¬ÍâÀ©
+% é€ä¸ªå¤„ç†ï¼Œæ¨ªå‘ã€çºµå‘è£å‰ªæ‰é»‘è¾¹,æŠ å‡ºROIï¼Œå¤–æ‰©
 for i = 1:length(filename_list)
     id = strsplit(filename_list{i},'.');
     id = str2double(id(1));
@@ -62,16 +62,16 @@ for i = 1:length(filename_list)
     % preprocess for stage 2
     [img4stage2,mask4stage2] = cutROIwithExpand(img4stage1_, mask4stage1_, stage2_aim_size);
     
-    % ¼ÆËãsize
+    % è®¡ç®—size
     nodule_size = sum(sum(mask4stage1));
     
-    % Ğ´Èëcsv:id,cate,size
+    % å†™å…¥csv:id,cate,size
     fid=fopen(csv_path,'a');
     fprintf(fid,'%s,%d,%d\n',filename_list{i},csv_cate(csv_id==id),nodule_size);
     fclose(fid);
     
     
-    % ±£´æÍ¼Æ¬
+    % ä¿å­˜å›¾ç‰‡
     % for stage1
     imwrite(img4stage1,[save_dir,filesep,'stage1',filesep,'p_image',filesep,filename_list{i}]);
     imwrite(mask4stage1,[save_dir,filesep,'stage1',filesep,'p_mask',filesep,filename_list{i}]);
@@ -79,7 +79,7 @@ for i = 1:length(filename_list)
     imwrite(img4stage2,[save_dir,filesep,'stage2',filesep,'p_image',filesep,filename_list{i}]);
     imwrite(mask4stage2,[save_dir,filesep,'stage2',filesep,'p_mask',filesep,filename_list{i}]);
 
-    % ÏÔÊ¾½ø¶È
+    % æ˜¾ç¤ºè¿›åº¦
     disp([num2str(i),'|',num2str(length(filename_list))]);
     
 end
