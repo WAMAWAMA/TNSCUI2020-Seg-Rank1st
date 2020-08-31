@@ -6,7 +6,7 @@ This is the source code of the 1st place solution for segmentation task (with Io
 
 Team members: 
 [Mingyu Wang](https://github.com/WAMAWAMA) · 
-[Chenglang Yuan](https://github.com/sunycl) · 
+[Sun Yuan](https://github.com/sunycl) · 
 [Dasheng Wu](https://github.com/wauloud) · 
 [Yinghou Zeng](https://github.com/zengyinghou) · 
 [Shaonan Zhong](https://github.com/ZZZsn)
