@@ -214,7 +214,9 @@ here are two ways to use it:
 
 
 ## Step1 preprocessing
-In step1, you should run the script [`step1_preprocessing.m`](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/step1_preprocessing/step1_preprocessing.m) to perform the preprocessing. For both TN-SCUI and DDTI dataset, there are some irrelevant regions to be removed. Because we used a cross-validation with a nodule size and category balance strategy, we should get the size of nodules for cross-validation.
+In step1, you should run the script [`step1_preprocessing.m`](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/step1_preprocessing/step1_preprocessing.m) 
+in [**MATLAB**](https://www.mathworks.com/products/matlab.html)
+to perform the preprocessing. For both TN-SCUI and DDTI dataset, there are some irrelevant regions to be removed. Because we used a cross-validation with a nodule size and category balance strategy, we should get the size of nodules for cross-validation.
 
 After the code runs, you will get two folders and a csv file:
  - the two filefolders are named `stage1` and `stage2`, the data in folder `stage1` is used to train the first network, which contains the preprocessed image with no irrelevant regions; and `stage2` is used to train the second network, which contains the image in the expanded ROI
