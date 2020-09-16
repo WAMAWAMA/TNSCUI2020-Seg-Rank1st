@@ -235,7 +235,7 @@ After the code runs, you will get two folders and a csv file:
 ### For training phase：
 In step2, you should run the script 
 [`step2_TrainAndValidate.py`](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/step2to4_train_validate_inference/step2_TrainAndValidate.py)
-to train the first or second network in the cascaded framework, **that is, the training process (such as hyperparameters) is the same for both first and second network except for the different training datasets used.** With the csv file `train.csv`, you can directly perform K-fold cross validation (default is 5-fold), and the script uses a fixed random seed to ensure that the K-fold cv of each experiment is repeatable (please note that the same random seed may cause different K-fold under different versions of `scikit-learn`).
+to train the first or second network in the cascaded framework (you need to train the two networks separately), **that is, the training process (such as hyperparameters) is the same for both first and second network except for the different training datasets used.** With the csv file `train.csv`, you can directly perform K-fold cross validation (default is 5-fold), and the script uses a fixed random seed to ensure that the K-fold cv of each experiment is repeatable (please note that the same random seed may cause different K-fold under different versions of `scikit-learn`).
 
 For example, you can train the first fold of the first network in two ways: 
 1. modify (set) following parameters in the script `step2TrainAndValidate.py` and run the script.
