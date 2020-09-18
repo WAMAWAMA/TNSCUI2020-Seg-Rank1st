@@ -20,7 +20,7 @@ Our pipeline is shown in the figure below.
 Due to different acquisition protocols, some thyroid ultrasound images have irrelevant regions (as shown in the first Figure). First, we remove these regions which may bring redundant features by using a threshold-based approach. Specifically, we perform the operation of averaging along the x and y axes on original images with pixel values from 0 to 255, respectively, after which rows and columns with mean values less than 5 are removed. Then the processed images are resized to 256×256 pixels as the input of the first segmentation network.
 
 ### Cascaded segmentation framework
-We train two networks which share the same encoder-decoder structure with Dice loss function. The first segmentation network (at stage Ⅰ of cascade) is trained to provide the rough localization of nodules, and the second segmentation network (at stage Ⅱ of cascade) is trained for fine segmentation based on the rough localization.Our preliminary experiments show that the provided context information in first network may do not play a significant auxiliary role for refinement of the second network. Therefore, we only train the second network using images within region of interest (ROI) obtained from ground truth (GT). 
+We train two networks which share the same encoder-decoder structure with Dice loss function. In practice, we choose **`DeeplabV3+ with efficientnet-B6 encoder`** as the first network and the second network. The first segmentation network (at stage Ⅰ of cascade) is trained to provide the rough localization of nodules, and the second segmentation network (at stage Ⅱ of cascade) is trained for fine segmentation based on the rough localization.Our preliminary experiments show that the provided context information in first network may do not play a significant auxiliary role for refinement of the second network. Therefore, we only train the second network using images within region of interest (ROI) obtained from ground truth (GT). (The input data is the only difference in the process of training the two networks.)
 ![something](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/pic/%E5%A4%A7%E5%B0%8F%E7%BB%93%E8%8A%82%E5%AF%B9%E6%AF%94.svg)
 When training the second network, we expand the nodule ROI obtained from GT, then the image in the expanded ROI is cropped out and resized to 512×512 pixels for feeding the second network. We observe that, in most cases, the large nodule generally has a clear boundary, and the gray value of small nodule is quite different from that of surrounding normal thyroid tissue (as shown in the above figure). Therefore, background information (the tissue around the nodule) is significant for segmenting small nodules. As shown in Figure below, in the preprocessed image with the size of 256×256 pixels, the minimum external square of the nodule ROI is obtained first, and then the external expansion m is set to 20 if the edge length n of the square is greater than 80, otherwise the m is set to 30. 
 ![something](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/pic/%E5%88%86%E5%89%B2%E9%A2%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B.svg)
@@ -44,7 +44,7 @@ Test time augmentation (TTA) generally improves the generalization ability of th
  - model ensembling: since we trained two networks separately in 5-fold CV , we combined any one first network and one second network as a pair, and finally we got 25 pairs (or inference results). We use [`step4_Merge.py`](https://github.com/WAMAWAMA/TN_SCUI_test/blob/master/step2to4_train_validate_inference/step4_Merge.py) to merge 25 inference results into a final ensemble result by pixel-wised voting
 
 ## Segmentation results on 2020 TN-SCUI training dataset and DDTI dataset
-We test our method on 2020 TN-SCUI training dataset(with 3644 images or nodules, malignant 2003 : benign 1641). The segmentation results of 5-fold CV are as following:
+We test our method on 2020 TN-SCUI training dataset(with 3644 images or nodules, malignant 2003 : benign 1641). The segmentation results of 5-fold CV based on "DeeplabV3+ with efficientnet-B6 encoder" are as following:
 |fold|Stage Ⅰ|TTA at stage Ⅰ|Stage Ⅱ|TTA at stage Ⅱ|DsC|IoU (%)|
 |-------------|:-:|:-:|:-:|:-:|:--:|:--:|
 | 1      |√  |   |   |   |0.8699|79.00|
@@ -99,7 +99,7 @@ We test our method on 2020 TN-SCUI training dataset(with 3644 images or nodules,
 
 We also test our method on another open access thyroid nodule ultrasound image dataset 
 (DDTI public database [[https://doi.org/10.1117/12.2073532](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9287/1/An-open-access-thyroid-ultrasound-image-database/10.1117/12.2073532.short)], 
-with 637 images or nodules after our preprocessing and data cleaning). The segmentation results of 5-fold CV are as following:
+with 637 images or nodules after our preprocessing and data cleaning). The segmentation results of 5-fold CV based on "DeeplabV3+ with efficientnet-B6 encoder" are as following:
 |fold|Stage Ⅰ|TTA at stage Ⅰ|Stage Ⅱ|TTA at stage Ⅱ|DsC|IoU (%)|
 |-------------|:-:|:-:|:-:|:-:|:--:|:--:|
 | 1      |√  |   |   |   |0.8391|74.80|
