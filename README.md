@@ -230,6 +230,9 @@ After the code runs, you will get two folders and a csv file:
 | 001.PNG  |1   | 256  |
 | ┋        |┋   | ┋    |
 
+**The example of preprocessed DDTI dataset was given here
+ [[GoogleDrive](https://drive.google.com/file/d/1wwlsEhwfSyvQsJBRjeDLhUjqZh8eaH2R/view?usp=sharing)]
+ [[BaiduWP](https://pan.baidu.com/s/1E-28rkg94Jc8NLyKhe2q3g), password:`qxds`]**
 
 ## Step2 training and validatation
 ### For training phase：
