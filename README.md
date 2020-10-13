@@ -192,8 +192,9 @@ Since the sponsor of TNSCUI challenge does not allow the dissemination of the 20
 We have tested our code in following environment：
  - [`segmentation_models_pytorch`](https://github.com/qubvel/segmentation_models.pytorch) == 0.1.0 (with install command `pip install segmentation-models-pytorch`)
  - [`ttach`](https://github.com/qubvel/ttach) == 0.0.3
- - `torch` == 1.1.0
- - `torchvision` == 0.4.0
+ - `torch` >＝1.0.0
+ - `torchvision`
+ - [`imgaug`](https://github.com/aleju/imgaug)
 
 For installing `segmentation_models_pytorch (smp)`, there are two commands：
 ```linux
