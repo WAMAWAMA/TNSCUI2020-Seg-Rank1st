@@ -263,7 +263,7 @@ python step2_TrainAndValidate.py \
 --Task_name='dpv3plus_stage1_'\
 --csv_file='./DDTI/2_preprocessed_data/train.csv' \
 --filepath_img='./DDTI/2_preprocessed_data/stage1/p_image' \
---filepath_mask='./DDTI/2_preprocessed_data/stage1/p_image' \
+--filepath_mask='./DDTI/2_preprocessed_data/stage1/p_mask' \
 --fold_idx=1
 ```
 
