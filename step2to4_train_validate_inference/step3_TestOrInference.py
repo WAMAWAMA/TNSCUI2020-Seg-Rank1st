@@ -251,6 +251,7 @@ if __name__ == '__main__':
                         mask_c2_array = mask_c2_array.astype(np.float32)
                         mask_c2_array = resize(mask_c2_array, img_array_roi_shape, order=c2_resize_order)
                         # 放回cascade1输出的mask
+                        mask_c1_array_biggest = mask_c1_array_biggest.astype(np.float32)
                         mask_c1_array_biggest[dim1_cut_min:dim1_cut_max, dim2_cut_min:dim2_cut_max] = mask_c2_array
                         mask_c1_array_biggest = mask_c1_array_biggest.astype(np.float32)
                         print(np.unique(mask_c1_array_biggest))
