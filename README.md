@@ -245,6 +245,7 @@ For example, you can train the first fold of the first network in two ways:
 ```python
 """ just set your param as the default value """
 # hyperparameters
+parser.add_argument('--image_size', type=int, default=256)  # recommended: 256 for 1st(stageⅠ) network, 512 for 2nd(stage Ⅱ) network👍
 parser.add_argument('--batch_size', type=int, default=3)
 parser.add_argument('--batch_size_test', type=int, default=30)
 # custom parameters
@@ -297,16 +298,16 @@ By using the script `step3_TestOrInference.py`, you can:
  - inference on new data
 
 
-Here are some parameters should be noticed:
+Here are some parameters should be noticed (Especially `c1_size` and `c2_size`):
 ```python
 fold_flag = False # False for inference on new data, and True for cross-validation
 mask_path = None  # None for inference on new data
 save_path = None  # If you don't want to save the inference result, set it to None
-c1_size = 256  # The input image size for training the first network
+c1_size = 256  # The input image size for training the first network ❗
 c1_tta = False # Whether to use TTA for the first network
 orimg=False    # False for no preprocessing to remove irrelevant areas
 use_c2_flag = False # Whether to use the second network
-c2_size = 512 # The input image size for training the second network
+c2_size = 512 # The input image size for training the second network ❗
 c2_tta = False # Whether to use TTA for the second network
 ```
 
