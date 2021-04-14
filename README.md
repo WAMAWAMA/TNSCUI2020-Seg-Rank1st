@@ -2,7 +2,7 @@
 This is the source code of the 1st place solution for segmentation task (with IoU 82.54%) in 2020 TN-SCUI challenge.
 
 [[Challenge leaderboard](https://tn-scui2020.grand-challenge.org/evaluation/leaderboard/)]
-
+[[中文版readme]](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/README_zch.md)
 
 
 ## Pipeline of our solution
