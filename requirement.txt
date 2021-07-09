@@ -1,0 +1,5 @@
+torchvision>=0.4.0
+segmentation_models_pytorch
+ttach
+tensorboardX
+imgaug
