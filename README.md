@@ -3,7 +3,7 @@ This is the source code of the 1st place solution for segmentation task (with Io
 
 [[Challenge leaderboard🏆](https://tn-scui2020.grand-challenge.org/evaluation/leaderboard/)]
 [[中文版readme👁](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/README_zch.md)]
-[[Tech Report是🛠](https://link.springer.com/chapter/10.1007/978-3-030-71827-5_14)]
+[[Tech Report🛠](https://link.springer.com/chapter/10.1007/978-3-030-71827-5_14)]
 
 ## Pipeline of our solution
 We use a simple cascaded framework for segmenting nodules, it can be easily extended to other single-target segmentation tasks.
