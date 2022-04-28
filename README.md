@@ -253,7 +253,7 @@ parser.add_argument('--batch_size_test', type=int, default=30)
 parser.add_argument('--Task_name', type=str, default='dpv3plus_stage1_', help='DIR name,Task name')
 parser.add_argument('--csv_file', type=str, default='./DDTI/2_preprocessed_data/train.csv')
 parser.add_argument('--filepath_img', type=str, default='./DDTI/2_preprocessed_data/stage1/p_image')
-parser.add_argument('--filepath_mask', type=str, default='./DDTI/2_preprocessed_data/stage1/p_image')
+parser.add_argument('--filepath_mask', type=str, default='./DDTI/2_preprocessed_data/stage1/p_mask')
 parser.add_argument('--fold_K', type=int, default=5, help='number of cross-validation folds')
 parser.add_argument('--fold_idx', type=int, default=1)
 ```
