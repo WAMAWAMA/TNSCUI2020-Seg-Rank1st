@@ -226,9 +226,9 @@ After the code runs, you will get two folders and a csv file:
 | id       |cate| size |
 |:--------:|:--:|:----:|
 | 001.PNG  |0   | 2882 |
-| 001.PNG  |1   | 3277 |
-| 001.PNG  |1   | 3222 |
-| 001.PNG  |1   | 256  |
+| 002.PNG  |1   | 3277 |
+| 003.PNG  |1   | 3222 |
+| 004.PNG  |1   | 256  |
 | ┋        |┋   | ┋    |
 
 **The example of preprocessed DDTI dataset was given here
