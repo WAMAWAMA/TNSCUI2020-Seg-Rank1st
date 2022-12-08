@@ -213,7 +213,7 @@ here are two ways to use it:
 
 
 ## Step1 preprocessing
- 👀**This step is optional, if you dont wanna preprocess image, just prepare your data as the demo fomat and skip to the next step.**
+ 👀**This step is optional, if you donot wanna preprocess image, just prepare your data as the demo format and skip to the Step2"training and validatation".**
  
 In step1, you should run the script [`step1_preprocessing.m`](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/step1_preprocessing/step1_preprocessing.m) 
 in [**MATLAB**](https://www.mathworks.com/products/matlab.html)
