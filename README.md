@@ -4,6 +4,8 @@ This is the source code of the 1st place solution for segmentation task (with Io
 [[Challenge leaderboard🏆](https://tn-scui2020.grand-challenge.org/evaluation/leaderboard/)]
 [[中文版readme👁](https://github.com/WAMAWAMA/TNSCUI2020-Seg-Rank1st/blob/master/README_zch.md)]
 
+ <a href="https://colab.research.google.com/drive/18yVCIWbJYl8LspfueUfmi9ug8ejEXHJK?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> Fold1 test results of DDTI dataset in colab 
+
 ## Pipeline of our solution
 We use a simple cascaded framework for segmenting nodules, it can be easily extended to other single-target segmentation tasks.
 
@@ -164,6 +166,7 @@ to reproduce our results. (note that we only provide the weights of 1st fold in 
  [[GoogleDrive](https://drive.google.com/file/d/1wwlsEhwfSyvQsJBRjeDLhUjqZh8eaH2R/view?usp=sharing)]
  [[BaiduWP](https://pan.baidu.com/s/1E-28rkg94Jc8NLyKhe2q3g), password:`qxds`]
 
+ <a href="https://colab.research.google.com/drive/18yVCIWbJYl8LspfueUfmi9ug8ejEXHJK?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> Fold1 test results of DDTI dataset in colab 
     
  ## Statement
 We consulted the official organizer of 2020 TN-SCUI via email, and the official reply is that using of external dataset is not allowed in the 2020 TN-SCUI challenge, and participants are not allowed to provide the challenge data anywhere. **Therefore, we hereby declare that we did not use any external datasets (such as the DDTI dataset) in the competition, and will not provide TNSCUI data anywhere.** The DDTI dataset processed by us is only used as demo data for this code, so that everyone can run the entire scripts with a ready-made data.
